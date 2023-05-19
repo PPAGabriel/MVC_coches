@@ -4,8 +4,7 @@ public class Controller {
     public static void main(String[] args) {
         miModelo = new Model();
         miVista = new View();
-
-        System.out.println("fin");
+        IU.crearVentana();
     }
 
 
@@ -14,5 +13,15 @@ public class Controller {
         if (obx!=null){
             miVista.muestraVelocidad(obx.matricula, obx.velocidad);
         }
+    }
+
+    public static void bajarVelocidad(String matricula){
+        int auxV= miModelo.bajarVelocidad(matricula,10);
+        miVista.muestraVelocidad(matricula,auxV);
+    }
+
+    public static void aumentarVelocidad(String matricula){
+        int auxV=miModelo.subirVelocidad(matricula,10);
+        miVista.muestraVelocidad(matricula,auxV);
     }
 }
