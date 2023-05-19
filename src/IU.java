@@ -7,6 +7,8 @@ public class IU {
     private JTextField modelo;
     private JTextField matricula;
     private JPanel panel;
+    private JButton subirVelocidadButton;
+    private JButton bajarVelocidadButton;
 
 
     public IU() {
@@ -14,6 +16,18 @@ public class IU {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Controller.crearCoche(modelo.getText(),matricula.getText());
+            }
+        });
+        subirVelocidadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.aumentarVelocidad(matricula.getText());
+            }
+        });
+        bajarVelocidadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.bajarVelocidad(matricula.getText());
             }
         });
     }

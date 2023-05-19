@@ -1,10 +1,10 @@
 public class Controller {
-    static Model miModelo;
-    static View miVista;
+    static Model miModelo=new Model();
+    static View miVista=new View();
     public static void main(String[] args) {
-        miModelo = new Model();
-        miVista = new View();
-
+        OVelocidad oVelocidad=new OVelocidad();
+        miModelo.addObserver(oVelocidad);
+        IU.crearVentana();
         System.out.println("fin");
     }
 
@@ -14,5 +14,13 @@ public class Controller {
         if (obx!=null){
             miVista.muestraVelocidad(obx.matricula, obx.velocidad);
         }
+    }
+
+    public static void bajarVelocidad(String matricula){
+        miModelo.bajarVelocidad(matricula,10);
+    }
+
+    public static void aumentarVelocidad(String matricula){
+        miModelo.subirVelocidad(matricula,10);
     }
 }
