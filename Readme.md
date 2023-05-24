@@ -133,4 +133,12 @@ sequenceDiagram
     View->>-View: System.out.println()
     View-->>Controller: boolean
     deactivate View
+    Controller->>Model: usarCoche("Ferrari","ABC123")
+    activate Model
+    Model-->>Controller: coche
+    deactivate Model
+    activate View
+    View->>-View: System.out.println()
+    View-->>Controller: boolean
+    
 ```
