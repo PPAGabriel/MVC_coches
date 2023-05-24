@@ -3,7 +3,7 @@
 Aplicación que trabaja con objetos coches, modifica la velocidad y la muestra
 
 ---
-## Diagrama de clases:
+## Diagrama de clases: ACTUALIZACION EXAMEN
 
 ```mermaid
 classDiagram
@@ -15,7 +15,8 @@ classDiagram
       class Controller{
           +main()
       }
-      class View {+muestraVelocidad(String, Integer)}
+      class View {+muestraVelocidad(String, Integer)
+      +muestraCoche(String,String,Integer)}
       class Model {
           ArrayList~Coche~: parking
           +crearCoche(String, String, String)
@@ -77,6 +78,15 @@ sequenceDiagram
     activate View
     View->>-View: Mostrando velocidad
     View-->>Controller: Listo!
+    deactivate View
+    Controller-->>Model: Usa el coche, porfa
+    activate Model
+    Model-->>Controller: Usado!
+    deactivate Model
+    Controller->>+View: Muestra el coche en alta, porfa
+    activate View
+    View->>-View: Mostrando coche en alta (o error)
+    View-->>Controller:Listo!
     deactivate View
 ```
 
