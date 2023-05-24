@@ -16,7 +16,8 @@ classDiagram
           +main()
       }
       class View {+muestraVelocidad(String, Integer)
-      +muestraCoche(String,String,Integer)}
+      +muestraCoche(String,String,Integer)
+      +muestraError()}
       class Model {
           ArrayList~Coche~: parking
           +crearCoche(String, String, String)
@@ -142,3 +143,10 @@ sequenceDiagram
     View-->>Controller: boolean
     
 ```
+CERRANDO EL ISSUE
+
+# PROCEDIMIENTO
+
+Inicialmente, usamos el método getCoche que esta en la clase Model. Posteriormente, ejecutamos en la clase Controller dicho método dentro de uno estatico, asegurandonos asi de que el coche este dado de alta con una condición "if/else".
+
+Seguidamente, en este método del controller añadimos métodos de mi clase View, donde se creó el método muestraCoche y muestraError, en donde según el caso muestra una ventana que indica si el coche esta o no dado de alta.
