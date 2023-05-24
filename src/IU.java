@@ -11,6 +11,7 @@ public class IU {
     private JButton subirVelocidadButton;
 
     private JButton bajarVelocidadButton;
+    private JButton UsarCocheButton;
 
 
     public IU() {
@@ -36,6 +37,12 @@ public class IU {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Controller.bajarVelocidad(matricula.getText());
+            }
+        });
+        UsarCocheButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.usarCoche(matricula.getText(),modelo.getText());
             }
         });
     }

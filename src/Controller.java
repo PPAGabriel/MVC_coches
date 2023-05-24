@@ -24,4 +24,18 @@ public class Controller {
         int auxV=miModelo.subirVelocidad(matricula,10);
         miVista.muestraVelocidad(matricula,auxV);
     }
+
+    /**
+     * Método que permite usar un coche que ya exista en el parking
+     * @param matricula -> matricula del coche dado en alta
+     * @param modelo -> modelo del coche dado en alta
+     */
+    public static void usarCoche(String matricula,String modelo){
+        Coche obx=miModelo.getCoche(matricula);
+        if(obx!=null){
+            miVista.muestraCoche(matricula,obx.modelo,obx.velocidad);
+        }else{
+            miVista.muestraError();
+        }
+    }
 }

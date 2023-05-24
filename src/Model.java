@@ -37,7 +37,7 @@ public class Model {
      * @param v nueva velocidad
      * @return velocidad modificada
      */
-    public Integer cambiarVelocidad(String matricula, Integer v) {
+    public Integer cambiarVelocidad(String matricula,Integer v) {
         // busca el coche
         getCoche(matricula).velocidad = v;
         // retorna la nueva velocidad
