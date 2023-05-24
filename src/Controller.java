@@ -1,21 +1,41 @@
 public class Controller {
+    static Model miModelo;
+    static View miVista;
     public static void main(String[] args) {
-        Model miModelo = new Model();
-        View miVista = new View();
+        miModelo = new Model();
+        miVista = new View();
+        IU.crearVentana();
+    }
 
-        // Crear tres coches
 
-        miModelo.crearCoche("LaFerrari", "SBC 1234");
-        miModelo.crearCoche("Alpine", "HYU 4567");
-        miModelo.crearCoche("Aston Martin", "FGH 3333");
+    public static void crearCoche(String modelo,String matricula){
+        Coche obx=miModelo.crearCoche(modelo,matricula);
+        if (obx!=null){
+            miVista.muestraVelocidad(obx.matricula, obx.velocidad);
+        }
+    }
 
-        Coche ferrari = miModelo.getCoche("SBC 1234");
-        // modifica la velocidad
-        miModelo.cambiarVelocidad("SBC 1234", 30);
+    public static void bajarVelocidad(String matricula){
+        int auxV= miModelo.bajarVelocidad(matricula,10);
+        miVista.muestraVelocidad(matricula,auxV);
+    }
 
-        // recoje la velocidad y la muestra (tarea de la View)
-        boolean hecho = miVista.muestraVelocidad("SBC 1234", miModelo.getVelocidad("SBC 1234"));
+    public static void aumentarVelocidad(String matricula){
+        int auxV=miModelo.subirVelocidad(matricula,10);
+        miVista.muestraVelocidad(matricula,auxV);
+    }
 
-        System.out.println(hecho);
+    /**
+     * Método que permite usar un coche que ya exista en el parking
+     * @param matricula -> matricula del coche dado en alta
+     * @param modelo -> modelo del coche dado en alta
+     */
+    public static void usarCoche(String matricula,String modelo){
+        Coche obx=miModelo.getCoche(matricula);
+        if(obx!=null){
+            miVista.muestraCoche(matricula,obx.modelo,obx.velocidad);
+        }else{
+            miVista.muestraError();
+        }
     }
 }
