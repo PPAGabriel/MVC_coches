@@ -3,7 +3,9 @@ public class Controller {
     static View miVista=new View();
     public static void main(String[] args) {
         OVelocidad oVelocidad=new OVelocidad();
+        ObsExceso obsExceso=new ObsExceso();
         miModelo.addObserver(oVelocidad);
+        miModelo.addObserver(obsExceso);
         IU.crearVentana();
         System.out.println("fin");
     }
